@@ -1,9 +1,0 @@
-{
-  "name": "aulas-02",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^5.1.0"
-  }
-}
