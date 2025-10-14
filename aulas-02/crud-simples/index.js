@@ -107,3 +107,81 @@ server.delete("/vendas/:id", (req, res) => {
 
 
 server.listen (8000, () => console.log("rodando na porta 8000"));
+
+//-----------------------------------desafio-----------------------------------
+
+// const express = require("express");
+// const server = express();
+
+// server.use(express.json());
+
+// let vendas = [
+//   { id: 1, nome: "blusa", preco: 50 },
+//   { id: 2, nome: "chinelo", preco: 10 },
+//   { id: 3, nome: "relógio", preco: 20 }
+// ];
+
+// // LISTAR todas as vendas ou filtrar por preço
+// server.get("/vendas", (req, res) => {
+//   const { preco } = req.query;
+
+//   if (preco) {
+//     const filtro = vendas.filter(item => item.preco == preco);
+//     if (filtro.length === 0) {
+//       return res.status(404).json({ error: "preço não encontrado" });
+//     }
+//     return res.status(200).json(filtro);
+//   }
+
+//   return res.json(vendas);
+// });
+
+// // LISTAR venda por ID
+// server.get("/vendas/:id", (req, res) => {
+//   const id = parseInt(req.params.id);
+//   const venda = vendas.find(item => item.id === id);
+//   const status = venda ? 200 : 404;
+
+//   return res.status(status).json(venda);
+// });
+
+// // CRIAR nova venda
+// server.post("/vendas", (req, res) => {
+//   const { nome, preco } = req.body;
+//   const nextId = vendas.length === 0 ? 1 : vendas[vendas.length - 1].id + 1;
+//   const novaVenda = { id: nextId, nome, preco };
+
+//   vendas.push(novaVenda);
+
+//   return res.status(201).json(novaVenda);
+// });
+
+// // ATUALIZAR venda por ID
+// server.put("/vendas/:id", (req, res) => {
+//   const id = parseInt(req.params.id);
+//   const { nome, preco } = req.body;
+
+//   const index = vendas.findIndex(item => item.id === id);
+//   const status = index >= 0 ? 200 : 404;
+
+//   if (index >= 0) {
+//     vendas[index] = { id: parseInt(id), nome, preco };
+//   }
+
+//   return res.status(status).json(vendas[index]);
+// });
+
+// // DELETAR venda por ID
+// server.delete("/vendas/:id", (req, res) => {
+//   const id = parseInt(req.params.id);
+//   const index = vendas.findIndex(item => item.id === id);
+//   const status = index >= 0 ? 200 : 404;
+
+//   if (index >= 0) {
+//     vendas.splice(index, 1);
+//   }
+
+//   return res.status(status).json({ message: "Item deletado com sucesso" });
+// });
+
+// server.listen(4000, () => console.log("rodando na porta 4000"));
