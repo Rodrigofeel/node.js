@@ -1,7 +1,7 @@
-const { Router } = require('express'); //Importa o Router do Express, que é como um mini-servidor que você pode usar para organizar rotas separadamente do servidor principal.
-const routes = new Router();
+import { Router } from "express"; //Importa o Router do Express, que é como um mini-servidor que você pode usar para organizar rotas separadamente do servidor principal.
+import customers from "./app/controllers/CustomersController.js"; //Importa o controlador de clientes
 
-const customers = require("./app/controllers/CustomersController"); //Importa o controlador de clientes
+const routes = new Router();
 
 routes.get("/customers", customers.index); // Rota para listar todos os clientes
 routes.get("/customers/:id", customers.show); // Rota para mostrar um cliente específico pelo ID
@@ -10,4 +10,4 @@ routes.put("/customers/:id", customers.update); // Rota para atualizar um client
 routes.delete("/customers/:id", customers.delete); // Rota para deletar um cliente pelo ID
 
 
-module.exports = routes; // Exporta esse Router para ser usado no app.js
+export default routes; // Exporta esse Router para ser usado no app.js

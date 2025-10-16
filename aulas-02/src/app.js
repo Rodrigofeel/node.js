@@ -1,5 +1,5 @@
-const express = require("express");
-const routes = require("./routes");
+import express from "express";
+import routes from "./routes.js";
 
 //Cria uma classe que organiza o servidor. Isso é bom para projetos maiores, porque separa a lógica de inicialização do servidor.
 
@@ -22,4 +22,4 @@ class App {
 }
 
 
-module.exports = new App().server; // exporta a instância do servidor já configurada
+export default new App().server; // exporta a instância do servidor já configurada

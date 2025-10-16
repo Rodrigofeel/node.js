@@ -60,4 +60,4 @@ let customers = [
     }
 }
 
-module.exports = new CustomersController(); // exporta uma instância da classe CustomersController
+export default new CustomersController(); // exporta uma instância da classe CustomersController
