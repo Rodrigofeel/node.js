@@ -1,26 +1,32 @@
 import js from "@eslint/js";
 import globals from "globals";
-import { defineConfig } from "eslint/config";
+import reactPlugin from "eslint-plugin-react";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import prettierPlugin from "eslint-plugin-prettier";
 
-export default defineConfig([
+export default [
+  js.configs.recommended,
   {
     files: ["**/*.{js,mjs,cjs,ts,tsx}"],
-    plugins: { js, react: require("eslint-plugin-react"), "@typescript-eslint": require("@typescript-eslint/eslint-plugin"), prettier: require("eslint-plugin-prettier") },
-    extends: [
-      "js/recommended",
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended"
-    ],
     languageOptions: {
+      parser: tsParser,
       globals: {
         ...globals.node,
         ...globals.browser,
         ...globals.es2021
-      },
-      parser: require.resolve("@typescript-eslint/parser")
+      }
     },
+    plugins: {
+      react: reactPlugin,
+      "@typescript-eslint": tsPlugin,
+      prettier: prettierPlugin
+    },
+    extends: [
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
     rules: {
       "prettier/prettier": "error"
     },
@@ -30,5 +36,6 @@ export default defineConfig([
       }
     }
   }
-]);
+];
+
 
