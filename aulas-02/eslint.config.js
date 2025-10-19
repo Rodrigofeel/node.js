@@ -31,6 +31,7 @@ export default [
       ...pluginReact.configs.recommended.rules,
       ...tseslint.configs.recommended.rules,
       "prettier/prettier": "error",
+      "no-console": ["error", { allow: ["warn", "error"] }],
     },
     settings: {
       react: {

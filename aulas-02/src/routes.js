@@ -9,5 +9,4 @@ routes.post("/customers", customers.create); // Rota para criar um novo cliente
 routes.put("/customers/:id", customers.update); // Rota para atualizar um cliente existente pelo ID
 routes.delete("/customers/:id", customers.delete); // Rota para deletar um cliente pelo ID
 
-
 export default routes; // Exporta esse Router para ser usado no app.js
