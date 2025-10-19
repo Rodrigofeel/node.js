@@ -1,41 +1,41 @@
+// eslint.config.js
 import js from "@eslint/js";
 import globals from "globals";
-import reactPlugin from "eslint-plugin-react";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
-import prettierPlugin from "eslint-plugin-prettier";
+import pluginReact from "eslint-plugin-react";
+import tseslint from "@typescript-eslint/eslint-plugin";
+import parserTs from "@typescript-eslint/parser";
+import prettier from "eslint-plugin-prettier";
 
 export default [
   js.configs.recommended,
   {
     files: ["**/*.{js,mjs,cjs,ts,tsx}"],
     languageOptions: {
-      parser: tsParser,
       globals: {
         ...globals.node,
         ...globals.browser,
-        ...globals.es2021
-      }
+        ...globals.es2021,
+      },
+      parser: parserTs,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
     },
     plugins: {
-      react: reactPlugin,
-      "@typescript-eslint": tsPlugin,
-      prettier: prettierPlugin
+      react: pluginReact,
+      "@typescript-eslint": tseslint,
+      prettier,
     },
-    extends: [
-      "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended"
-    ],
     rules: {
-      "prettier/prettier": "error"
+      ...pluginReact.configs.recommended.rules,
+      ...tseslint.configs.recommended.rules,
+      "prettier/prettier": "error",
     },
     settings: {
       react: {
-        version: "detect"
-      }
-    }
-  }
+        version: "detect",
+      },
+    },
+  },
 ];
-
-
