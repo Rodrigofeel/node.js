@@ -1,15 +1,19 @@
-let customers = [
+import Customer from "../models/Customer.js";
+
+const customers = [
     { id: 1, name: "rodrigo", site: "http://rodrigo.com.br" },
     { id: 2, name: "matheus", site: "http://matheus.com.br" },
     { id: 3, name: "gustavo", site: "http://gustavo.com.br" },
 ];
 class CustomersController {
     // listagem dos registros
-    index(req, res) {
-        return res.json(customers);
+    async index(req, res) {
+        const data = await Customer.findAll({
+            limit: 1000,
+        });
     }
     // listagem de um unico reigstro
-    show(req, res) {
+    async show(req, res) {
         const id = parseInt(req.params.id);
         const customer = customers.find((item) => item.id === id);
         const status = customer ? 200 : 404;

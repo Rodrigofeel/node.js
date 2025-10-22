@@ -1,6 +1,7 @@
 import express from "express";
 import routes from "./routes.js";
 
+import "./database/index.js";
 //Cria uma classe que organiza o servidor. Isso é bom para projetos maiores, porque separa a lógica de inicialização do servidor.
 
 class App {
