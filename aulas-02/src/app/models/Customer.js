@@ -6,7 +6,7 @@ class Customer extends Model {
             {
                 name: Sequelize.STRING,
                 email: Sequelize.STRING,
-                status: Sequelize.ENUM("ACTIVE", "INATIVE"),
+                // status: Sequelize.ENUM("ACTIVE", "INATIVE"),
             },
             {
                 sequelize,
